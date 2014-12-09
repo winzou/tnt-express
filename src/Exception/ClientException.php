@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace TNTExpress\Client;
+namespace TNTExpress\Exception;
 
 class ClientException extends \Exception
 {

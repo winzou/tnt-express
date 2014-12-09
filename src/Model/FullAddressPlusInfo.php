@@ -28,6 +28,11 @@ class FullAddressPlusInfo extends FullAddress
      */
     protected $openingHours;
 
+    public function init()
+    {
+        parent::init();
+    }
+
     /**
      * @return string|null
      */

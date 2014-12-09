@@ -28,6 +28,11 @@ class FullAddress extends Address
      */
     protected $name;
 
+    public function init()
+    {
+        parent::init();
+    }
+
     /**
      * @return string|null
      */

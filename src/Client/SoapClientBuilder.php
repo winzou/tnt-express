@@ -40,8 +40,16 @@ class SoapClientBuilder
         'Address'             => '\TNTExpress\Model\Address',
         'city'                => '\TNTExpress\Model\City',
         'dropOffPoint'        => '\TNTExpress\Model\DropOffPoint',
-        'FullAddress'         => '\TNTExpress\Model\FullAddress',
-        'FullAddressPlusInfo' => '\TNTExpress\Model\FullAddressPlusInfo',
+        'fullAddress'         => '\TNTExpress\Model\FullAddress',
+        'fullAddressPlusInfo' => '\TNTExpress\Model\FullAddressPlusInfo',
+        'parcelRequest'       => '\TNTExpress\Model\ParcelRequest',
+        'receiver'            => '\TNTExpress\Model\Receiver',
+        'sender'              => '\TNTExpress\Model\Sender',
+        'pickUpRequest'       => '\TNTExpress\Model\PickUpRequest',
+        'expeditionResponse'  => '\TNTExpress\Model\Expedition',
+        'service'             => '\TNTExpress\Model\Service',
+        'parcelResponse'      => '\TNTExpress\Model\ParcelResponse',
+        'expeditionCreationParameter' => '\TNTExpress\Model\ExpeditionRequest',
     );
 
     public function __construct($login = null, $password = null, array $classmap = null, $wsdl = null)

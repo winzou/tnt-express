@@ -17,6 +17,10 @@ class DropOffPoint extends FullAddressPlusInfo
     protected $longitude;
     protected $xETTCode;
 
+    public function init()
+    {
+    }
+
     public function getLatitude()
     {
         return $this->latitude;

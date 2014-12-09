@@ -11,22 +11,20 @@
 
 use TNTExpress\Client\TNTClient;
 use TNTExpress\Client\SoapClientBuilder;
+use TNTExpress\Exception\ExceptionManager;
+use TNTExpress\Exception\ClientException;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 $builder = new SoapClientBuilder('login', 'password');
 $soapClient = $builder->createClient(true);
 
-$TNTClient = new TNTClient(array(), $soapClient);
+$TNTClient = new TNTClient($soapClient, new ExceptionManager());
 
 try {
     $city = $TNTClient->getCitiesGuide('76130');
 
     var_dump($city);
-} catch (\SoapFault $e) {
-    var_dump(
-        $e->getMessage(),
-        $soapClient->__getLastRequest(),
-        $soapClient->__getLastResponse()
-    );
+} catch (ClientException $e) {
+    var_dump($e->getMessage());
 }

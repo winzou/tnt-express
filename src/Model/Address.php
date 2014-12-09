@@ -14,6 +14,11 @@ namespace TNTExpress\Model;
 class Address
 {
     /**
+     * @var int
+     */
+    protected $id;
+
+    /**
      * @var string
      */
     protected $address1;
@@ -32,6 +37,10 @@ class Address
      * @var string
      */
     protected $zipCode;
+
+    public function init()
+    {
+    }
     
     /**
      * @return string|null
@@ -39,6 +48,15 @@ class Address
     public function getAddress1()
     {
         return $this->address1;
+    }
+
+    /**
+     * @return $this
+     */
+    public function setAddress1($address1)
+    {
+        $this->address1 = $address1;
+        return $this;
     }
     
     /**
@@ -50,6 +68,15 @@ class Address
     }
 
     /**
+     * @return $this
+     */
+    public function setAddress2($address2)
+    {
+        $this->address2 = $address2;
+        return $this;
+    }
+
+    /**
      * @return string|null
      */
     public function getCity()
@@ -58,10 +85,28 @@ class Address
     }
 
     /**
+     * @return $this
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+        return $this;
+    }
+
+    /**
      * @return string|null
      */
     public function getZipCode()
     {
         return $this->zipCode;
+    }
+
+    /**
+     * @return $this
+     */
+    public function setZipCode($zipCode)
+    {
+        $this->zipCode = $zipCode;
+        return $this;
     }
 }

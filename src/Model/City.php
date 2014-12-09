@@ -23,6 +23,10 @@ class City
      */
     protected $zipCode;
 
+    public function init()
+    {
+    }
+
     /**
      * @return string|null
      */
