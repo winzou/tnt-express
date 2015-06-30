@@ -16,6 +16,7 @@ use TNTExpress\Exception\ExceptionManagerInterface;
 use TNTExpress\Exception\InvalidPairZipcodeCityException;
 use TNTExpress\Exception\MissingFieldException;
 use TNTExpress\Exception\NoServiceAvailableException;
+use TNTExpress\Exception\ParcelNotFoundException;
 use TNTExpress\Model\DropOffPoint;
 use TNTExpress\Model\City;
 use TNTExpress\Model\ExpeditionRequest;
@@ -162,6 +163,27 @@ class TNTClient implements TNTClientInterface
         }
 
         return $services;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getTrackingByConsignment($trackingNumber)
+    {
+        try {
+            $result = $this->client->trackingByConsignment(array('parcelNumber' => $trackingNumber));
+        } catch (\SoapFault $e) {
+            $this->manager->handle($e);
+        }
+
+        if (!isset($result->Parcel)) {
+            throw new ParcelNotFoundException($trackingNumber);
+        }
+
+        $parcel = $result->Parcel;
+        $parcel->init();
+
+        return $parcel;
     }
 
     /**

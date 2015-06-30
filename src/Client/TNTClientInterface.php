@@ -61,4 +61,14 @@ interface TNTClientInterface
      * @throws ClientException
      */
     public function createExpedition(ExpeditionRequest $expeditionRequest);
+
+    /**
+     * Get the status of a parcel given its number
+     *
+     * @param string $trackingNumber
+     *
+     * @return mixed
+     *
+     */
+    public function getTrackingByConsignment($trackingNumber);
 }

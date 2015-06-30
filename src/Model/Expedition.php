@@ -38,9 +38,9 @@ class Expedition
     public function init()
     {
         if (!$this->parcelResponses instanceof ArrayCollection) {
-            $this->parcelResponses = new ArrayCollection(
+            $this->setParcelResponses(new ArrayCollection(
                 is_array($this->parcelResponses) ? $this->parcelResponses : array($this->parcelResponses)
-            );
+            ));
         }
 
         foreach ($this->parcelResponses as $parcel) {
@@ -82,6 +82,21 @@ class Expedition
     {
         if ($this->parcelResponses->contains($parcelResponse)) {
             $this->parcelResponses->removeElement($parcelResponse);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ArrayCollection $parcelResponses
+     * @return $this
+     */
+    public function setParcelResponses(ArrayCollection $parcelResponses)
+    {
+        $this->parcelResponses = new ArrayCollection();
+
+        foreach ($parcelResponses as $parcelResponse) {
+            $this->addParcelResponse($parcelResponse);
         }
 
         return $this;

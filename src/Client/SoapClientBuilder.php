@@ -49,6 +49,8 @@ class SoapClientBuilder
         'expeditionResponse'  => '\TNTExpress\Model\Expedition',
         'service'             => '\TNTExpress\Model\Service',
         'parcelResponse'      => '\TNTExpress\Model\ParcelResponse',
+        'parcel'              => '\TNTExpress\Model\Parcel',
+        'event'               => '\TNTExpress\Model\Events',
         'expeditionCreationParameter' => '\TNTExpress\Model\ExpeditionRequest',
     );
 
