@@ -56,8 +56,7 @@ class TNTClient implements TNTClientInterface
     public function getDropOffPoints($zipCode, $city = null)
     {
         if (null === $city) {
-            $cities = $this->getCitiesGuide($zipCode);
-            $city = $cities[0]->getName();
+            $city = current($this->getCitiesGuide($zipCode))->getName();
         }
 
         try {
